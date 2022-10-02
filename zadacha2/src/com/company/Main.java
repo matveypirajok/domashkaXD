@@ -7,7 +7,9 @@ public class Main {
         int massInd = 7;
         int sum = 0;
             for (int i = 0; i < massInd; i++) {
-                if (massFib[i] % 2 == 0){
+                if (massInd > massFib.length){
+                    System.out.println("неверное n"); break;}
+               else if (massFib[i] % 2 == 0){
                     sum += massFib[i];
                 }
                 else continue;
