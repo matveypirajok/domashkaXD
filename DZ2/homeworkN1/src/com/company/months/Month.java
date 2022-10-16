@@ -20,22 +20,26 @@ public enum Month {
         this.number = number;
     }
 
-    public int getNumber(){
+    public int getNumber() {
         return number;
     }
 
-    public static void getMonthByNum(int number){
-        for(Month month : values()){
-            if(month.number == number){
-                System.out.println(month);
+    public static Month getMonthByNum(int number) {
+        for (Month month : values()) {
+            if (month.number == number) {
+                return month;
             }
         }
+        return null;
     }
-    public static void getNumByMonth(String months){
-        for(Month month : values()){
-            if(month.valueOf(months).equals(months)){
-                System.out.println(month.number);
+
+    public static int getNumByMonth(String months) {
+        for (Month month : values()) {
+            if (month.valueOf(months).equals(months)) {
+                return month.number;
             }
         }
+        return 0;
     }
 }
+
