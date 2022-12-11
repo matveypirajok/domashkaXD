@@ -18,14 +18,16 @@ public class AudiFactory extends Factory{
         if(!audiCarsStock.contains(car)) {
             audiCarsStock.add(car);
         }
+        System.out.println("создана машина: " + car.toString());
         return car;
     }
 
-    public static AudiCar findCarToServise(Colors color, Models model, int yearOfIssue, WheelSizes wheelSize, EngineVolumes engineValue, String[] options, boolean prestige, List<AudiCar> audiCarsStock) {
+    public static AudiCar findAudiToServise(Colors color, Models model, int yearOfIssue, WheelSizes wheelSize, EngineVolumes engineValue, String[] options, boolean prestige, List<AudiCar> audiCarsStock) {
         AudiCar car = new AudiCar(color, model, yearOfIssue, wheelSize, engineValue, options, prestige);
         if(audiCarsStock.contains(car)) {
             findedCar = car;
         }
+        System.out.println("найдена машина: " + car.toString());
         return findedCar;
     }
 

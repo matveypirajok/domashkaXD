@@ -20,14 +20,16 @@ public class ToyotaFactory extends Factory {
         if(!toyotaCars.contains(car)) {
             toyotaCars.add(car);
         }
+        System.out.println("создана машина: " + car.toString());
         return car;
     }
 
-    public static ToyotaCar findCarToServise(Colors color, Models model, int yearOfIssue, WheelSizes wheelSize, EngineVolumes engineValue,String[] options, boolean tuned, List<ToyotaCar> toyotaCars) {
+    public ToyotaCar findToyotaToServise(Colors color, Models model, int yearOfIssue, WheelSizes wheelSize, EngineVolumes engineValue,String[] options, boolean tuned, List<ToyotaCar> toyotaCars) {
         ToyotaCar car = new ToyotaCar(color, model, yearOfIssue, wheelSize, engineValue, options, tuned);
         if(toyotaCars.contains(car)) {
             findedCar = car;
         }
+        System.out.println("найдена машина: " + car.toString());
         return findedCar;
     }
 

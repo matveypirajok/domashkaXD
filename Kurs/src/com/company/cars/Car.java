@@ -5,6 +5,7 @@ import com.company.enums.EngineVolumes;
 import com.company.enums.Models;
 import com.company.enums.WheelSizes;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Car {
@@ -38,5 +39,18 @@ public class Car {
 
     public String[] getOptions() {
         return options;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "color=" + color +
+                ", model=" + model +
+                ", yearOfIssue=" + yearOfIssue +
+                ", WheelSize=" + WheelSize +
+                ", engineValue=" + engineValue +
+                ", options=" + Arrays.toString(options) +
+                '}';
     }
 }

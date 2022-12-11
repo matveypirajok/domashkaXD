@@ -13,4 +13,9 @@ public class ToyotaCar extends Car {
         super(color, model, yearOfIssue, wheelSize, engineValue, options);
         this.tuned = tuned;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + tuned;
+    }
 }

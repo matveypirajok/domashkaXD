@@ -16,35 +16,59 @@ import com.company.servises.WheelServise;
 import java.util.List;
 
 public class CarShowroom {
-    public static AudiFactory audiFactory = new AudiFactory();
-    public static RollsRoyceFactory rollsRoyceFactory = new RollsRoyceFactory();
-    public static ToyotaFactory toyotaCar = new ToyotaFactory();
+    public AudiFactory audiFactory = new AudiFactory();
+    public RollsRoyceFactory rollsRoyceFactory = new RollsRoyceFactory();
+    public ToyotaFactory toyotaFactory = new ToyotaFactory();
 
-    public static AudiCar CreateAudi(Colors color, Models model, int yearOfIssue, WheelSizes wheelSize, EngineVolumes engineValue, String[] options, boolean prestige) {
+    public AudiCar createAudi(Colors color, Models model, int yearOfIssue, WheelSizes wheelSize, EngineVolumes engineValue, String[] options, boolean prestige) {
        return audiFactory.createAudiCar(color, model, yearOfIssue, wheelSize, engineValue, options, prestige, audiFactory.getAudiCarsStock());
     }
 
-    public static RollsRoyceCar CreateRollsRoyce(Colors color, Models model, int yearOfIssue, WheelSizes wheelSize, EngineVolumes engineValue, String[] options, boolean forImport) {
+    public AudiCar findAudi(Colors color, Models model, int yearOfIssue, WheelSizes wheelSize, EngineVolumes engineValue, String[] options, boolean prestige) {
+        return audiFactory.findAudiToServise(color, model, yearOfIssue, wheelSize, engineValue, options, prestige, audiFactory.getAudiCarsStock());
+    }
+
+
+    public RollsRoyceCar createRollsRoyce(Colors color, Models model, int yearOfIssue, WheelSizes wheelSize, EngineVolumes engineValue, String[] options, boolean forImport) {
         return rollsRoyceFactory.createRollsRoyceCar(color, model, yearOfIssue, wheelSize, engineValue, options, forImport, rollsRoyceFactory.getRollsRoyceCars());
     }
 
-    public static ToyotaCar CreateToyota(Colors color, Models model, int yearOfIssue, WheelSizes wheelSize, EngineVolumes engineValue,String[] options, boolean tuned) {
-        return toyotaCar.createToyotaCar(color, model, yearOfIssue, wheelSize, engineValue, options, tuned);
+    public RollsRoyceCar findRollsRoyce(Colors color, Models model, int yearOfIssue, WheelSizes wheelSize, EngineVolumes engineValue, String[] options, boolean forImport) {
+        return rollsRoyceFactory.findRollsRoyceToServise(color, model, yearOfIssue, wheelSize, engineValue, options, forImport, rollsRoyceFactory.getRollsRoyceCars());
     }
 
-    public static void ChangeColorOnServise(Car car, Colors color) {
+
+    public ToyotaCar createToyota(Colors color, Models model, int yearOfIssue, WheelSizes wheelSize, EngineVolumes engineValue,String[] options, boolean tuned) {
+        return toyotaFactory.createToyotaCar(color, model, yearOfIssue, wheelSize, engineValue, options, tuned);
+    }
+
+    public ToyotaCar findToyota(Colors color, Models model, int yearOfIssue, WheelSizes wheelSize, EngineVolumes engineValue,String[] options, boolean tuned) {
+        return toyotaFactory.findToyotaToServise(color, model, yearOfIssue, wheelSize, engineValue, options, tuned, toyotaFactory.getToyotaCars());
+    }
+
+    public static Car changeColorOnServise(Car car, Colors color) {
         ColorServise.setNewColor(car, color);
+        System.out.println(car.toString());
+        return car;
     }
 
-    public static void ChangeWheelSizeOnServise(Car car, WheelSizes wheelSize) {
-        WheelServise.setNewWheelSize(car, wheelSize);
+    public static Car changeWheelSizeOnServise(Car car, WheelSizes newWheelSize) {
+        WheelServise.setNewWheelSize(car, newWheelSize);
+        System.out.println(car.toString());
+        return car;
     }
 
-    public static void AddOptionsOnServise(Car car, String newOption) {
+    public static Car addOptionsOnServise(Car car, String newOption) {
         OptionsServise.addNewOption(car, newOption);
+        System.out.println(car.toString());
+        return car;
     }
 
-    public static void DeleteOptionOnServise(Car car, String optionToDelete) {
+    public static Car deleteOptionOnServise(Car car, String optionToDelete) {
         OptionsServise.deleteOption(car, optionToDelete);
+        System.out.println(car.toString());
+        return car;
     }
+
+
 }

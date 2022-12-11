@@ -8,8 +8,10 @@ import com.company.factories.AudiFactory;
 
 public class Main {
     public static  String[] options = new String[10];
-    public static void main(String[] args) {
-        CarShowroom.CreateAudi(Colors.BLUE, Models.PICKUP, 1987, WheelSizes.MEDIUM, EngineVolumes.MEDIUM, options, true).toString();
 
+    public static void main(String[] args) {
+        CarShowroom carShowroom = new CarShowroom();
+        System.out.println(carShowroom.createAudi(Colors.BLUE, Models.PICKUP, 1987, WheelSizes.MEDIUM, EngineVolumes.MEDIUM, options, true));
+        carShowroom.changeColorOnServise(carShowroom.findAudi(Colors.BLUE, Models.PICKUP, 1987, WheelSizes.MEDIUM, EngineVolumes.MEDIUM, options, true), Colors.GREEN);
     }
 }

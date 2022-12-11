@@ -20,14 +20,16 @@ public class RollsRoyceFactory extends Factory{
         if(!rollsRoyceCars.contains(car)) {
             rollsRoyceCars.add(car);
         }
+        System.out.println("создана машина: " + car.toString());
         return car;
     }
 
-    public static RollsRoyceCar findCarToServise(Colors color, Models model, int yearOfIssue, WheelSizes wheelSize, EngineVolumes engineValue,String[] options, boolean forImport, List<RollsRoyceCar> rollsRoyceCars) {
+    public RollsRoyceCar findRollsRoyceToServise(Colors color, Models model, int yearOfIssue, WheelSizes wheelSize, EngineVolumes engineValue,String[] options, boolean forImport, List<RollsRoyceCar> rollsRoyceCars) {
         RollsRoyceCar car = new RollsRoyceCar(color, model, yearOfIssue, wheelSize, engineValue, options, forImport);
         if(rollsRoyceCars.contains(car)) {
             findedCar = car;
         }
+        System.out.println("найдена машина: " + car.toString());
         return findedCar;
     }
 

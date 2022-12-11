@@ -13,4 +13,9 @@ public class RollsRoyceCar extends Car {
         super(color, model, yearOfIssue, wheelSize, engineValue, options);
         this.forImport = forImport;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + forImport;
+    }
 }

@@ -13,4 +13,10 @@ public class AudiCar extends Car {
         super(color, model, yearOfIssue, wheelSize, engineValue, options);
         this.prestige = prestige;
     }
+
+
+    @Override
+    public String toString() {
+        return super.toString() + prestige;
+    }
 }
