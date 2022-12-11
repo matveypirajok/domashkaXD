@@ -19,6 +19,7 @@ public class CarShowroom {
     public AudiFactory audiFactory = new AudiFactory();
     public RollsRoyceFactory rollsRoyceFactory = new RollsRoyceFactory();
     public ToyotaFactory toyotaFactory = new ToyotaFactory();
+    public ColorServise colorServise = new ColorServise();
 
     public AudiCar createAudi(Colors color, Models model, int yearOfIssue, WheelSizes wheelSize, EngineVolumes engineValue, String[] options, boolean prestige) {
        return audiFactory.createAudiCar(color, model, yearOfIssue, wheelSize, engineValue, options, prestige, audiFactory.getAudiCarsStock());
@@ -46,27 +47,27 @@ public class CarShowroom {
         return toyotaFactory.findToyotaToServise(color, model, yearOfIssue, wheelSize, engineValue, options, tuned, toyotaFactory.getToyotaCars());
     }
 
-    public static Car changeColorOnServise(Car car, Colors color) {
-        ColorServise.setNewColor(car, color);
-        System.out.println(car.toString());
+    public Car changeColorOnServise(Car car, Colors color) {
+        colorServise.setNewColor(car, color);
+        System.out.println("Изменен цвет: " + car.toString());
         return car;
     }
 
     public static Car changeWheelSizeOnServise(Car car, WheelSizes newWheelSize) {
         WheelServise.setNewWheelSize(car, newWheelSize);
-        System.out.println(car.toString());
+        System.out.println("изменены  колёса: " + car.toString());
         return car;
     }
 
     public static Car addOptionsOnServise(Car car, String newOption) {
         OptionsServise.addNewOption(car, newOption);
-        System.out.println(car.toString());
+        System.out.println("Добавлена опция: " + car.toString());
         return car;
     }
 
     public static Car deleteOptionOnServise(Car car, String optionToDelete) {
         OptionsServise.deleteOption(car, optionToDelete);
-        System.out.println(car.toString());
+        System.out.println("удалена опция: " + car.toString());
         return car;
     }
 

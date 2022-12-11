@@ -13,7 +13,6 @@ import java.util.List;
 public class RollsRoyceFactory extends Factory{
 
     private List<RollsRoyceCar> rollsRoyceCars = new ArrayList<>();
-    private static RollsRoyceCar findedCar;
 
     public RollsRoyceCar createRollsRoyceCar(Colors color, Models model, int yearOfIssue, WheelSizes wheelSize, EngineVolumes engineValue, String[] options, boolean forImport, List<RollsRoyceCar> rollsRoyceCars) {
         RollsRoyceCar car = new RollsRoyceCar(color, model, yearOfIssue, wheelSize, engineValue, options, forImport);
@@ -26,11 +25,9 @@ public class RollsRoyceFactory extends Factory{
 
     public RollsRoyceCar findRollsRoyceToServise(Colors color, Models model, int yearOfIssue, WheelSizes wheelSize, EngineVolumes engineValue,String[] options, boolean forImport, List<RollsRoyceCar> rollsRoyceCars) {
         RollsRoyceCar car = new RollsRoyceCar(color, model, yearOfIssue, wheelSize, engineValue, options, forImport);
-        if(rollsRoyceCars.contains(car)) {
-            findedCar = car;
-        }
+        if(rollsRoyceCars.contains(car))
         System.out.println("найдена машина: " + car.toString());
-        return findedCar;
+        return car;
     }
 
     public List<RollsRoyceCar> getRollsRoyceCars() {

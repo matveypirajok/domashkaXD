@@ -11,7 +11,6 @@ import java.util.List;
 
 public class AudiFactory extends Factory{
     private List<AudiCar> audiCarsStock = new ArrayList<>();
-    private static AudiCar findedCar;
 
     public AudiCar createAudiCar(Colors color, Models model, int yearOfIssue, WheelSizes wheelSize, EngineVolumes engineValue,String[] options, boolean prestige, List<AudiCar> audiCarsStock) {
         AudiCar car = new AudiCar(color, model, yearOfIssue, wheelSize, engineValue, options, prestige);
@@ -24,11 +23,9 @@ public class AudiFactory extends Factory{
 
     public static AudiCar findAudiToServise(Colors color, Models model, int yearOfIssue, WheelSizes wheelSize, EngineVolumes engineValue, String[] options, boolean prestige, List<AudiCar> audiCarsStock) {
         AudiCar car = new AudiCar(color, model, yearOfIssue, wheelSize, engineValue, options, prestige);
-        if(audiCarsStock.contains(car)) {
-            findedCar = car;
-        }
+        if(audiCarsStock.contains(car))
         System.out.println("найдена машина: " + car.toString());
-        return findedCar;
+        return car;
     }
 
     public List<AudiCar> getAudiCarsStock() {
